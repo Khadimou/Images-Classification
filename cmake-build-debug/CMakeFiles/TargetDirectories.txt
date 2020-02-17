@@ -1,0 +1,4 @@
+/home/khadimou/Bureau/neuralnetworkAI/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/khadimou/Bureau/neuralnetworkAI/cmake-build-debug/CMakeFiles/filtre.dir
+/home/khadimou/Bureau/neuralnetworkAI/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/khadimou/Bureau/neuralnetworkAI/cmake-build-debug/CMakeFiles/main.dir
