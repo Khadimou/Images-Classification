@@ -22,7 +22,7 @@ public:
 private:
     float somme,err = 0.,lr = 1.0; //learning rate = 1
     bool output[2]= {0,1};
-    int n = 25; //nombre d'entrée
+    int n = 1; //nombre d'entrée
     float* m_h,*m_lhd;
     float** m_lw0;
     float** lw_d;
