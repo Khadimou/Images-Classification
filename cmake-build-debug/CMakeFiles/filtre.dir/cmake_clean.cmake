@@ -3,6 +3,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/filtre.dir/neuronmath.cpp.o"
   "CMakeFiles/filtre.dir/pgmimg.cpp.o"
   "CMakeFiles/filtre.dir/ppmimg.cpp.o"
+  "CMakeFiles/filtre.dir/test.cpp.o"
   "CMakeFiles/filtre.dir/trainer.cpp.o"
   "libfiltre.pdb"
   "libfiltre.so"

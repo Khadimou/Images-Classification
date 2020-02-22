@@ -6,5 +6,6 @@ CMakeFiles/main.dir/main.cpp.o: ../main.cpp
 CMakeFiles/main.dir/main.cpp.o: ../neuronmath.h
 CMakeFiles/main.dir/main.cpp.o: ../pgmimg.h
 CMakeFiles/main.dir/main.cpp.o: ../ppmimg.h
+CMakeFiles/main.dir/main.cpp.o: ../test.h
 CMakeFiles/main.dir/main.cpp.o: ../trainer.h
 

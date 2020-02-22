@@ -35,6 +35,14 @@ ppmimg.h
 /home/khadimou/Bureau/neuralnetworkAI/ppmimg.h
 trainer.h
 /home/khadimou/Bureau/neuralnetworkAI/trainer.h
+test.h
+/home/khadimou/Bureau/neuralnetworkAI/test.h
+stdio.h
+-
+dirent.h
+-
+regex.h
+-
 
 /home/khadimou/Bureau/neuralnetworkAI/neuronmath.h
 
@@ -46,10 +54,18 @@ filtre.h
 filtre.h
 /home/khadimou/Bureau/neuralnetworkAI/filtre.h
 
+/home/khadimou/Bureau/neuralnetworkAI/test.h
+trainer.h
+/home/khadimou/Bureau/neuralnetworkAI/trainer.h
+ppmimg.h
+/home/khadimou/Bureau/neuralnetworkAI/ppmimg.h
+
 /home/khadimou/Bureau/neuralnetworkAI/trainer.h
 random
 -
 string
+-
+vector
 -
 ppmimg.h
 /home/khadimou/Bureau/neuralnetworkAI/ppmimg.h

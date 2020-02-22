@@ -22,6 +22,14 @@ CMakeFiles/filtre.dir/ppmimg.cpp.o
  /home/khadimou/Bureau/neuralnetworkAI/pgmimg.h
  /home/khadimou/Bureau/neuralnetworkAI/ppmimg.cpp
  /home/khadimou/Bureau/neuralnetworkAI/ppmimg.h
+CMakeFiles/filtre.dir/test.cpp.o
+ /home/khadimou/Bureau/neuralnetworkAI/filtre.h
+ /home/khadimou/Bureau/neuralnetworkAI/neuronmath.h
+ /home/khadimou/Bureau/neuralnetworkAI/pgmimg.h
+ /home/khadimou/Bureau/neuralnetworkAI/ppmimg.h
+ /home/khadimou/Bureau/neuralnetworkAI/test.cpp
+ /home/khadimou/Bureau/neuralnetworkAI/test.h
+ /home/khadimou/Bureau/neuralnetworkAI/trainer.h
 CMakeFiles/filtre.dir/trainer.cpp.o
  /home/khadimou/Bureau/neuralnetworkAI/filtre.h
  /home/khadimou/Bureau/neuralnetworkAI/neuronmath.h

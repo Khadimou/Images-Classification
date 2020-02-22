@@ -22,6 +22,14 @@ CMakeFiles/filtre.dir/ppmimg.cpp.o: ../pgmimg.h
 CMakeFiles/filtre.dir/ppmimg.cpp.o: ../ppmimg.cpp
 CMakeFiles/filtre.dir/ppmimg.cpp.o: ../ppmimg.h
 
+CMakeFiles/filtre.dir/test.cpp.o: ../filtre.h
+CMakeFiles/filtre.dir/test.cpp.o: ../neuronmath.h
+CMakeFiles/filtre.dir/test.cpp.o: ../pgmimg.h
+CMakeFiles/filtre.dir/test.cpp.o: ../ppmimg.h
+CMakeFiles/filtre.dir/test.cpp.o: ../test.cpp
+CMakeFiles/filtre.dir/test.cpp.o: ../test.h
+CMakeFiles/filtre.dir/test.cpp.o: ../trainer.h
+
 CMakeFiles/filtre.dir/trainer.cpp.o: ../filtre.h
 CMakeFiles/filtre.dir/trainer.cpp.o: ../neuronmath.h
 CMakeFiles/filtre.dir/trainer.cpp.o: ../pgmimg.h

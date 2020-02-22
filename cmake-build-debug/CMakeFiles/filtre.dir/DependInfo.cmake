@@ -8,6 +8,7 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/home/khadimou/Bureau/neuralnetworkAI/neuronmath.cpp" "/home/khadimou/Bureau/neuralnetworkAI/cmake-build-debug/CMakeFiles/filtre.dir/neuronmath.cpp.o"
   "/home/khadimou/Bureau/neuralnetworkAI/pgmimg.cpp" "/home/khadimou/Bureau/neuralnetworkAI/cmake-build-debug/CMakeFiles/filtre.dir/pgmimg.cpp.o"
   "/home/khadimou/Bureau/neuralnetworkAI/ppmimg.cpp" "/home/khadimou/Bureau/neuralnetworkAI/cmake-build-debug/CMakeFiles/filtre.dir/ppmimg.cpp.o"
+  "/home/khadimou/Bureau/neuralnetworkAI/test.cpp" "/home/khadimou/Bureau/neuralnetworkAI/cmake-build-debug/CMakeFiles/filtre.dir/test.cpp.o"
   "/home/khadimou/Bureau/neuralnetworkAI/trainer.cpp" "/home/khadimou/Bureau/neuralnetworkAI/cmake-build-debug/CMakeFiles/filtre.dir/trainer.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")

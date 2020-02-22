@@ -157,6 +157,12 @@
 		<Unit filename="/home/khadimou/Bureau/neuralnetworkAI/ppmimg.h">
 			<Option target="filtre"/>
 		</Unit>
+		<Unit filename="/home/khadimou/Bureau/neuralnetworkAI/test.cpp">
+			<Option target="filtre"/>
+		</Unit>
+		<Unit filename="/home/khadimou/Bureau/neuralnetworkAI/test.h">
+			<Option target="filtre"/>
+		</Unit>
 		<Unit filename="/home/khadimou/Bureau/neuralnetworkAI/trainer.cpp">
 			<Option target="filtre"/>
 		</Unit>

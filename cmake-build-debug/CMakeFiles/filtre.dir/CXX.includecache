@@ -36,16 +36,22 @@ filtre.h
 filtre.h
 /home/khadimou/Bureau/neuralnetworkAI/filtre.h
 
-/home/khadimou/Bureau/neuralnetworkAI/trainer.cpp
+/home/khadimou/Bureau/neuralnetworkAI/test.cpp
+test.h
+/home/khadimou/Bureau/neuralnetworkAI/test.h
+
+/home/khadimou/Bureau/neuralnetworkAI/test.h
 trainer.h
 /home/khadimou/Bureau/neuralnetworkAI/trainer.h
-math.h
--
+ppmimg.h
+/home/khadimou/Bureau/neuralnetworkAI/ppmimg.h
 
 /home/khadimou/Bureau/neuralnetworkAI/trainer.h
 random
 -
 string
+-
+vector
 -
 ppmimg.h
 /home/khadimou/Bureau/neuralnetworkAI/ppmimg.h
