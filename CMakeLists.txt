@@ -9,7 +9,8 @@ add_library(filtre SHARED filtre.cpp
         pgmimg.cpp
         ppmimg.cpp
         neuronmath.cpp
-        trainer.cpp)
+        trainer.cpp
+        test.cpp)
 
 add_executable(main main.cpp)
 target_link_libraries(main PUBLIC filtre)
