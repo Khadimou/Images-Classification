@@ -20,6 +20,22 @@ float train::d_relu(float x) {
     }
 }
 
+float train::sigmoid(float x)
+{
+    return 1.0 / (1.0 + exp(-x));
+}
+
+std::vector<float> train::softmax(std::vector<float> x) {
+    auto somme = 0.;
+    std::vector<float> proba(x.size());
+    for(auto i=0;i<x.size();i++){
+        somme += exp(x[i]);
+        proba[i] = exp(x[i])/somme;
+        //std::cout << proba[i] << " ";
+    }
+    return proba;
+}
+
 void train::init(int n_w,int n_h) {
 
     float** w0 = new float* [n_w];
@@ -83,7 +99,8 @@ void train::forming_layer_weights(int n_h) {
     float* lh_d= new float [n];
     float** lw0_d = new float* [n];
     lw_d = new float* [n];
-    m_lhd= new float [n];;
+    m_lhd= new float [n];
+    std::vector<float> squash(n);
     // forming lh_d
     for (int j = 0; j < n; j++)
     {
@@ -94,7 +111,10 @@ void train::forming_layer_weights(int n_h) {
         }
 
             lh[j] = relu(s);
-            err += fabs(lh[j] - output[1]);
+            squash[j] = lh[j];
+            auto layer_squashed = softmax(squash);
+            //std::cout << layer_squashed[j] << " ";
+            err += fabs(layer_squashed[j] - output[1]);
 
             lh_d[j] = (lh[j] - output[1]) * d_relu(lh[j]);
             m_lhd[j] = lh_d[j];
@@ -149,7 +169,7 @@ void train::trainer(int n_w, int n_h,ppm& img) {
     // initialisation
     int retrains = 0;
     // back prop
-    for (auto i = 1;; i++) {
+    for (auto i = 0;; i++) {
 
         init(n_w, n_h);
         forming_input_weights(n_h, n_w, img.px);
@@ -157,35 +177,33 @@ void train::trainer(int n_w, int n_h,ppm& img) {
         updating_weights(n_h, n_w, img.px);
 
 
-        if (i == 100) {
-            std::cout << err << " ";
+            //std::cout << err << " ";
             float err_n = err / (float) n;
 
             i = 0;
 
             //Roll around untill error is acceptable
-            if (err_n > 0.1) {
-                retrains++;
-                init(n_w,n_h);
-            }
+                if (err_n > 0.1) {
+                    retrains++;
+                    init(n_w, n_h);
+                }
 
 
-            //Mean absolute error
-            printf("retrains: %d, err: %lf\n", retrains, err_n);
-            for(int i=0;i <n_w;i++){
-                delete [] weights[i];
-            }
-            delete [] weights;
-            delete [] m_lhd;
-            for(int i = 0; i < n; ++i) {
-                delete [] lw_d[i];
-                delete [] m_lw0[i];
-            }
-            delete [] lw_d;
-            delete [] m_lw0;
-            delete [] m_h;
-            break;
-        }
+                //Mean absolute error
+                printf("retrains: %d, err: %lf\n", retrains, err_n);
+                /*for(int i=0;i <n_w;i++){
+                    delete [] weights[i];
+                }
+                delete [] weights;*/
+                delete[] m_lhd;
+                for (int i = 0; i < n; ++i) {
+                    delete[] lw_d[i];
+                    delete[] m_lw0[i];
+                }
+                delete[] lw_d;
+                delete[] m_lw0;
+                //delete [] m_h;
+                break;
 
     }
 

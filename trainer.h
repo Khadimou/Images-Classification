@@ -6,6 +6,7 @@
 
 #include <random>
 #include <string>
+#include <vector>
 #include "ppmimg.h"
 
 class train
@@ -18,11 +19,15 @@ public:
     void forming_layer_weights(int n_h);
     void updating_weights(int n_h,int n_w,byte *pixel);
     void trainer(int n_w,int n_h,ppm& img);
+    float sigmoid(float x);
+    std::vector<float> softmax(std::vector<float> x);
+    float **get_weights(){return this->weights;}
+    float *get_hidden_weights(){return this->m_h;}
 
 private:
     float somme,err = 0.,lr = 1.0; //learning rate = 1
     bool output[2]= {0,1};
-    int n = 1; //nombre d'entrée
+    int n = 1000; //nombre d'entrée
     float* m_h,*m_lhd;
     float** m_lw0;
     float** lw_d;
