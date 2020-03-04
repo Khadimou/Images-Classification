@@ -32,13 +32,25 @@ pgmimg.h
 filtre.h
 /home/khadimou/Bureau/neuralnetworkAI/filtre.h
 
-/home/khadimou/Bureau/neuralnetworkAI/ppmimg.cpp
-ppmimg.h
-/home/khadimou/Bureau/neuralnetworkAI/ppmimg.h
-pgmimg.h
-/home/khadimou/Bureau/neuralnetworkAI/pgmimg.h
-
 /home/khadimou/Bureau/neuralnetworkAI/ppmimg.h
 filtre.h
 /home/khadimou/Bureau/neuralnetworkAI/filtre.h
+
+/home/khadimou/Bureau/neuralnetworkAI/trainer.cpp
+trainer.h
+/home/khadimou/Bureau/neuralnetworkAI/trainer.h
+math.h
+-
+fstream
+-
+
+/home/khadimou/Bureau/neuralnetworkAI/trainer.h
+random
+-
+string
+-
+vector
+-
+ppmimg.h
+/home/khadimou/Bureau/neuralnetworkAI/ppmimg.h
 
