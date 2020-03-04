@@ -33,5 +33,10 @@ void test::output_test(train& input,int n_w,int n_h,const ppm& img) {
     _s = input.sigmoid(s);
 
     printf("\nOutput: (%lf) %.0lf \n\nPress enter to continue ...\n", _s, nearbyint(_s));
+    if(nearbyint(_s) == 1){
+        printf("CANCER DETECTED !!!\n");
+    } else{
+        printf("NO CANCER\n");
+    }
     delete [] l;
 }

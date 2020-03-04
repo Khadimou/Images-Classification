@@ -5,7 +5,6 @@
 #include "test.h"
 #include <stdio.h>
 #include <dirent.h>
-#include <regex.h>
 
 int main(int argc,char **argv)
 {
@@ -49,8 +48,8 @@ int main(int argc,char **argv)
         char *tum = path;
         img.ppm_open(tum);
         std::cout << "Resolution: " << img.h*img.w << "Pixels, "<< img.h*img.w / 1000000 <<" MPixels\n";
-        nn.trainer(2500,1000,img);
-        check.output_test(nn,2500,1000,img);
+        nn.trainer(2500,2500,img);
+        check.output_test(nn,2500,2500,img);
     }
 
     return 0;
