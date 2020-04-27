@@ -10,11 +10,12 @@ set(CMAKE_CXX_COMPILER_ID "GNU")
 
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
+  "/home/khadimou/intel/compilers_and_libraries_2020.0.166/linux/mpi/intel64/include"
   )
 
 # Targets to which this target links.
 set(CMAKE_TARGET_LINKED_INFO_FILES
-  "/home/khadimou/Bureau/neuralnetworkAI/cmake-build-debug/CMakeFiles/filtre.dir/DependInfo.cmake"
+  "/home/khadimou/Bureau/neuralnetworkAI/cmake-build-debug/CMakeFiles/nn.dir/DependInfo.cmake"
   )
 
 # Fortran module output directory.

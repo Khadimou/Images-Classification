@@ -27,52 +27,6 @@
 					<DistClean command="/usr/bin/make -j8 -f &quot;/home/khadimou/Bureau/neuralnetworkAI/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
-			<Target title="filtre">
-				<Option output="/home/khadimou/Bureau/neuralnetworkAI/cmake-build-debug/libfiltre.so" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/home/khadimou/Bureau/neuralnetworkAI/cmake-build-debug"/>
-				<Option object_output="./"/>
-				<Option type="3"/>
-				<Option compiler="gcc"/>
-				<Compiler>
-					<Add directory="/usr/include/c++/9"/>
-					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
-					<Add directory="/usr/include/c++/9/backward"/>
-					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
-					<Add directory="/usr/local/include"/>
-					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include-fixed"/>
-					<Add directory="/usr/include/x86_64-linux-gnu"/>
-					<Add directory="/usr/include"/>
-				</Compiler>
-				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/home/khadimou/Bureau/neuralnetworkAI/cmake-build-debug/Makefile&quot;  VERBOSE=1 filtre"/>
-					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/khadimou/Bureau/neuralnetworkAI/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j8 -f &quot;/home/khadimou/Bureau/neuralnetworkAI/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j8 -f &quot;/home/khadimou/Bureau/neuralnetworkAI/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-				</MakeCommands>
-			</Target>
-			<Target title="filtre/fast">
-				<Option output="/home/khadimou/Bureau/neuralnetworkAI/cmake-build-debug/libfiltre.so" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/home/khadimou/Bureau/neuralnetworkAI/cmake-build-debug"/>
-				<Option object_output="./"/>
-				<Option type="3"/>
-				<Option compiler="gcc"/>
-				<Compiler>
-					<Add directory="/usr/include/c++/9"/>
-					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
-					<Add directory="/usr/include/c++/9/backward"/>
-					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
-					<Add directory="/usr/local/include"/>
-					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include-fixed"/>
-					<Add directory="/usr/include/x86_64-linux-gnu"/>
-					<Add directory="/usr/include"/>
-				</Compiler>
-				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/home/khadimou/Bureau/neuralnetworkAI/cmake-build-debug/Makefile&quot;  VERBOSE=1 filtre/fast"/>
-					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/khadimou/Bureau/neuralnetworkAI/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j8 -f &quot;/home/khadimou/Bureau/neuralnetworkAI/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j8 -f &quot;/home/khadimou/Bureau/neuralnetworkAI/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-				</MakeCommands>
-			</Target>
 			<Target title="edit_cache">
 				<Option working_dir="/home/khadimou/Bureau/neuralnetworkAI/cmake-build-debug"/>
 				<Option type="4"/>
@@ -90,6 +44,7 @@
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
+					<Add directory="/home/khadimou/intel/compilers_and_libraries_2020.0.166/linux/mpi/intel64/include"/>
 					<Add directory="/usr/include/c++/9"/>
 					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
 					<Add directory="/usr/include/c++/9/backward"/>
@@ -113,6 +68,7 @@
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
+					<Add directory="/home/khadimou/intel/compilers_and_libraries_2020.0.166/linux/mpi/intel64/include"/>
 					<Add directory="/usr/include/c++/9"/>
 					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
 					<Add directory="/usr/include/c++/9/backward"/>
@@ -129,45 +85,93 @@
 					<DistClean command="/usr/bin/make -j8 -f &quot;/home/khadimou/Bureau/neuralnetworkAI/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
+			<Target title="nn">
+				<Option output="/home/khadimou/Bureau/neuralnetworkAI/cmake-build-debug/libnn.so" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/khadimou/Bureau/neuralnetworkAI/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="3"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/khadimou/intel/compilers_and_libraries_2020.0.166/linux/mpi/intel64/include"/>
+					<Add directory="/usr/include/c++/9"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
+					<Add directory="/usr/include/c++/9/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/khadimou/Bureau/neuralnetworkAI/cmake-build-debug/Makefile&quot;  VERBOSE=1 nn"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/khadimou/Bureau/neuralnetworkAI/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/khadimou/Bureau/neuralnetworkAI/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/khadimou/Bureau/neuralnetworkAI/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="nn/fast">
+				<Option output="/home/khadimou/Bureau/neuralnetworkAI/cmake-build-debug/libnn.so" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/khadimou/Bureau/neuralnetworkAI/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="3"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/khadimou/intel/compilers_and_libraries_2020.0.166/linux/mpi/intel64/include"/>
+					<Add directory="/usr/include/c++/9"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
+					<Add directory="/usr/include/c++/9/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/khadimou/Bureau/neuralnetworkAI/cmake-build-debug/Makefile&quot;  VERBOSE=1 nn/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/khadimou/Bureau/neuralnetworkAI/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/khadimou/Bureau/neuralnetworkAI/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/khadimou/Bureau/neuralnetworkAI/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
 		</Build>
 		<Unit filename="/home/khadimou/Bureau/neuralnetworkAI/filtre.cpp">
-			<Option target="filtre"/>
+			<Option target="nn"/>
 		</Unit>
 		<Unit filename="/home/khadimou/Bureau/neuralnetworkAI/filtre.h">
-			<Option target="filtre"/>
+			<Option target="nn"/>
 		</Unit>
 		<Unit filename="/home/khadimou/Bureau/neuralnetworkAI/main.cpp">
 			<Option target="main"/>
 		</Unit>
 		<Unit filename="/home/khadimou/Bureau/neuralnetworkAI/neuronmath.cpp">
-			<Option target="filtre"/>
+			<Option target="nn"/>
 		</Unit>
 		<Unit filename="/home/khadimou/Bureau/neuralnetworkAI/neuronmath.h">
-			<Option target="filtre"/>
+			<Option target="nn"/>
 		</Unit>
 		<Unit filename="/home/khadimou/Bureau/neuralnetworkAI/pgmimg.cpp">
-			<Option target="filtre"/>
+			<Option target="nn"/>
 		</Unit>
 		<Unit filename="/home/khadimou/Bureau/neuralnetworkAI/pgmimg.h">
-			<Option target="filtre"/>
+			<Option target="nn"/>
 		</Unit>
 		<Unit filename="/home/khadimou/Bureau/neuralnetworkAI/ppmimg.cpp">
-			<Option target="filtre"/>
+			<Option target="nn"/>
 		</Unit>
 		<Unit filename="/home/khadimou/Bureau/neuralnetworkAI/ppmimg.h">
-			<Option target="filtre"/>
+			<Option target="nn"/>
 		</Unit>
 		<Unit filename="/home/khadimou/Bureau/neuralnetworkAI/test.cpp">
-			<Option target="filtre"/>
+			<Option target="nn"/>
 		</Unit>
 		<Unit filename="/home/khadimou/Bureau/neuralnetworkAI/test.h">
-			<Option target="filtre"/>
+			<Option target="nn"/>
 		</Unit>
 		<Unit filename="/home/khadimou/Bureau/neuralnetworkAI/trainer.cpp">
-			<Option target="filtre"/>
+			<Option target="nn"/>
 		</Unit>
 		<Unit filename="/home/khadimou/Bureau/neuralnetworkAI/trainer.h">
-			<Option target="filtre"/>
+			<Option target="nn"/>
 		</Unit>
 		<Unit filename="/home/khadimou/Bureau/neuralnetworkAI/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>

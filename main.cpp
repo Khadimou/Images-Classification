@@ -5,6 +5,7 @@
 #include "test.h"
 #include <stdio.h>
 #include <dirent.h>
+#include <mpich/mpi.h>
 
 int main(int argc,char **argv)
 {
@@ -39,7 +40,13 @@ int main(int argc,char **argv)
     }
 
     int i;
+    int nproc,rank;
+    std::string current_test_char = "CANCER DETECTED !!!\n";
+    int bad_test_classifications = 0,total_test_classifications=0;
 
+    MPI_Init(&argc,&argv);
+    MPI_Comm_rank(MPI_COMM_WORLD,&rank);
+    MPI_Comm_size(MPI_COMM_WORLD,&nproc);
 
     for(i=2; i<nb_fichier;i++)
     {
@@ -47,10 +54,22 @@ int main(int argc,char **argv)
         snprintf(path, 512, "%s/%s", chemin, liste[i]->d_name);
         char *tum = path;
         img.ppm_open(tum);
-        std::cout << "Resolution: " << img.h*img.w << "Pixels, "<< img.h*img.w / 1000000 <<" MPixels\n";
-        nn.trainer(2500,2500,img);
-        check.output_test(nn,2500,2500,img);
+        //std::cout << "Resolution: " << img.h*img.w << "Pixels, "<< img.h*img.w / 1000000 <<" MPixels\n";
+        //nn.trainer(2500,2500,img);
+        //check.output_test(nn,2500,2500,img);
+        check.run_test("./weights",10,10,img);
+        if (current_test_char != check.output_test_char(check.get_res()))
+            bad_test_classifications++;
+
+        total_test_classifications++;
     }
+    //Percentage of bad test classifications
+    std::cout << "bad test classifications " << bad_test_classifications << "\n";
+    std::cout << "total classifications " << total_test_classifications << "\n";
+    auto pbtc = (bad_test_classifications * 100) / total_test_classifications;
+    std::cout << "pourcentage de mauvaises classifications " << pbtc << "%" << std::endl;
+
+    MPI_Finalize();
 
     return 0;
 }

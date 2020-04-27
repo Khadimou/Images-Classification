@@ -55,8 +55,8 @@ inline void train::init(int n_w,int n_h) {
         w0[i] = new float[n_h];
         weights[i] = new float[n_h];
         for (int j = 0; j < n_h; j++) {
-            //w0[i][j] = (2.0 * rand())/ RAND_MAX - 1;
-            w0[i][j] =(sqrt(-2.0 * log((float) rand() / RAND_MAX))) * (cos(6.28318530718 * (float) rand() / RAND_MAX));
+            w0[i][j] = (2.0 * rand())/ RAND_MAX - 1;
+            //w0[i][j] =(sqrt(-2.0 * log((float) rand() / RAND_MAX))) * (cos(6.28318530718 * (float) rand() / RAND_MAX));
             //std::cout << w0[i][j] << " ";
             weights[i][j] = w0[i][j];
         }
@@ -121,7 +121,7 @@ inline void train::forming_layer_weights(int n_h) {
             squash[j] = lh[j];
             auto layer_squashed = softmax(squash);
             //std::cout << layer_squashed[j] << " ";
-            err += fabs(lh[j] - output[1]);
+            err += fabs(layer_squashed[j] - output[1]);
 
             lh_d[j] = (lh[j] - output[1]) * d_sigmoid(lh[j]);
             m_lhd[j] = lh_d[j];
@@ -144,13 +144,10 @@ inline void train::forming_layer_weights(int n_h) {
     delete [] lw0_d;
 }
 
-inline void train::updating_weights(int n_h,int n_w,byte *pixel,std::string weights_file) {
-    std::ofstream fd(weights_file, std::ios::out | std::ios::trunc);
+inline void train::updating_weights(int n_h,int n_w,byte *pixel) {
     //Updating w0
-    for (int j = 0; j < n_w; j++)
-    {
-        for (int k = 0; k < n_h; k++)
-        {
+    for (int j = 0; j < n_w; j++) {
+        for (int k = 0; k < n_h; k++) {
             auto s = 0.0;
 
             for (int l = 0; l < n; l++) {
@@ -158,15 +155,12 @@ inline void train::updating_weights(int n_h,int n_w,byte *pixel,std::string weig
             }
 
             weights[j][k] -= (lr * s);
-            fd << weights[j][k] << " ";
             //std::cout << weights[j][k] << " ";
         }
     }
-    fd.close();
 
     //Updating h
-    for (int j = 0; j < n_h; j++)
-    {
+    for (int j = 0; j < n_h; j++) {
         auto s = 0.0;
 
         for (int k = 0; k < n; k++)
@@ -178,18 +172,18 @@ inline void train::updating_weights(int n_h,int n_w,byte *pixel,std::string weig
 
 void train::trainer(int n_w, int n_h,ppm& img) {
     // initialisation
-    int retrains = 0;
+    int retrains = 0,i;
     init(n_w, n_h);
 
     forming_input_weights(n_h, n_w, img.px);
     // back prop
-    for (auto i = 0;; i++) {
-        forming_layer_weights(n_h);
-        updating_weights(n_h, n_w, img.px,"./poids");
 
+    for (i = 0;; i++) {
+        forming_layer_weights(n_h);
+        updating_weights(n_h, n_w, img.px);
 
         //Roll around untill error is acceptable
-        if(i==0) {
+        if(i==100) {
             //std::cout << err << " ";
             float err_n = err / (float) n;
 
@@ -197,8 +191,8 @@ void train::trainer(int n_w, int n_h,ppm& img) {
 
             if (err_n > 0.1) {
                 retrains++;
-                init(n_w, n_h);
-                //continue;
+
+                trainer(n_w,n_h,img);
             }
 
 

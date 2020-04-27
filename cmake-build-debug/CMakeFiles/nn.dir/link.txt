@@ -1,0 +1,1 @@
+/usr/bin/c++ -fPIC -g  -shared -Wl,-soname,libnn.so -o libnn.so CMakeFiles/nn.dir/filtre.cpp.o CMakeFiles/nn.dir/pgmimg.cpp.o CMakeFiles/nn.dir/ppmimg.cpp.o CMakeFiles/nn.dir/neuronmath.cpp.o CMakeFiles/nn.dir/trainer.cpp.o CMakeFiles/nn.dir/test.cpp.o 

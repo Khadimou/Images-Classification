@@ -41,6 +41,8 @@ stdio.h
 -
 dirent.h
 -
+mpich/mpi.h
+-
 
 /home/khadimou/Bureau/neuralnetworkAI/neuronmath.h
 
@@ -57,6 +59,8 @@ trainer.h
 /home/khadimou/Bureau/neuralnetworkAI/trainer.h
 ppmimg.h
 /home/khadimou/Bureau/neuralnetworkAI/ppmimg.h
+algorithm
+-
 
 /home/khadimou/Bureau/neuralnetworkAI/trainer.h
 random
@@ -67,4 +71,6 @@ vector
 -
 ppmimg.h
 /home/khadimou/Bureau/neuralnetworkAI/ppmimg.h
+omp.h
+-
 
