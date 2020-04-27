@@ -52,7 +52,7 @@ void test::save_weights(train &t,std::string fname,int n_h,int n_w) {
             for (auto j = 0; j < n_w; j++) {
                 file << t.get_weights()[i][j] << " ";
             }
-            file << "\n";
+            //file << "\n";
         }
         file << "\n";
         for(auto i=0;i<n_h;i++) {
@@ -60,27 +60,6 @@ void test::save_weights(train &t,std::string fname,int n_h,int n_w) {
         }
         file.close();
     }
-}
-
-std::istream& ignoreline(std::ifstream& in, std::ifstream::pos_type& pos)
-{
-    pos = in.tellg();
-    return in.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-}
-
-std::string getLastLine(std::ifstream& in) {
-    std::ifstream::pos_type pos = in.tellg();
-
-    std::ifstream::pos_type lastPos;
-    while (in >> std::ws && ignoreline(in, lastPos))
-        pos = lastPos;
-
-    in.clear();
-    in.seekg(pos);
-
-    std::string line;
-    std::getline(in, line);
-    return line;
 }
 
 void split(const std::string& str, std::vector<float>& cont, char delim = ' ')
@@ -105,49 +84,50 @@ void test::run_test(std::string fname,int n_w,int n_h,const ppm& img) {
         std::vector<float> stock_poids;
         float s,_s;
         float *l = new float[n_h];
-        int iter =0;
+        int iter =0,inc=0;
+        std::vector<float> hidden_weights(n_h);
         while ( std::getline(file_weights,poids))
         {
             //std::cout << poids << "\n";
+            std::vector<float> tab_poids(n_h * n_w);
+            split(poids, tab_poids, ' ');
             while(iter<n_h*n_w) {
-                std::vector<float> tab_poids(n_h * n_w);
-                split(poids, tab_poids, ' ');
                 stock_poids.push_back(tab_poids[iter]);
-                std::cout << stock_poids[iter] << " ";
+                //std::cout << stock_poids[iter] << " ";
                 iter++;
             }
-            std::cout << "\n";
         }
+        split(poids, hidden_weights, ' ');
         for(auto i=0;i<n_h;i++){
             s = 0.;
-
-            for(auto j=0;j<n_w;j++){
-                s += img.px[j] * stock_poids[j];
+            for(auto j = 0; j < n_w ; j++) {
+                for (inc=0;inc<n_h*n_w;inc++ ) {
+                    s += img.px[j] * stock_poids[inc];
+                }
             }
 
             l[i] = t.sigmoid(s);
-            //std::cout << l[i] << " \n";
+            //std::cout << l[i] << "  ";
         }
 
         s = 0.0;
-        std::string hidden_weights = getLastLine(file_weights); //récupérer les hidden weights
-        //std::cout << hidden_weights << " ";
+
         for (auto i = 0; i < n_h; i++) {
-            s += (l[i] * atof(hidden_weights.c_str()));
-            //std::cout << atof(hidden_weights.c_str()) << " ";
+            //std::cout << hidden_weights[i] << " ";
+            s += (l[i] * hidden_weights[i]);
         }
 
         //std::cout << "s= " <<s << "\n";
         _s = t.sigmoid(s);
 
-        //printf("\nOutput: (%lf) %.0lf \n", _s, nearbyint(_s));
-        /*if(nearbyint(_s) == 1){
+        printf("\nOutput: (%lf) %.0lf \n", _s, nearbyint(_s));
+        if(nearbyint(_s) == 1){
             printf("CANCER DETECTED !!!\n");
             output_test_char("CANCER DETECTED !!!\n");
         } else{
             printf("NO CANCER\n");
             output_test_char("NO CANCER\n");
-        }*/
+        }
         file_weights.close();
     }else{
         std::cout << "Unable to open file";
