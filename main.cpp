@@ -55,9 +55,11 @@ int main(int argc,char **argv)
         char *tum = path;
         img.ppm_open(tum);
         std::cout << "Resolution: " << img.h*img.w << "Pixels, "<< img.h*img.w / 1000000 <<" MPixels\n";
-        //nn.trainer(100,100,img);
-        //check.output_test(nn,100,100,img);
-        check.run_test("weights",100,100,img);
+        //entraînement du réseau de neurones
+        nn.trainer(100,100,img);
+        check.output_test(nn,100,100,img);
+        // test du réseau de neurones avec les poids enregistrés de probabilité 1
+        //check.run_test("weights",100,100,img);
         if (current_test_char != check.output_test_char(check.get_res()))
             bad_test_classifications++;
 

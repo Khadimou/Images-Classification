@@ -1,1 +1,1 @@
-In this project I intent to implement a convolutionnal neural network which classifies images of breast cancer using c++. To compile my code you can use the cmake-build-debug and execute the main with an image of breast cancer. I am still struggling doing the training function, thanks for your comprehension !!!
+In this project I intent to implement a convolutionnal neural network which classifies images of breast cancer using c++. To compile my code you can use the cmake-build-debug and execute the main with a folder of breast cancer images. You can use the tum folder. 
