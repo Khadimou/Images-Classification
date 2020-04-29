@@ -87,7 +87,7 @@ inline void train::forming_input_weights(int n_h,int n_w,const byte *pixel) {
         for (int i = 0; i < n_h; i++){
             somme = 0.0;
             for (int j = 0; j < n_w; j++) {
-                somme += pixel[k] * weights[j][i];
+                somme += (float)pixel[k] * weights[j][i];
             }
 
                 lw0[k][i] = sigmoid(somme);
@@ -151,7 +151,7 @@ inline void train::updating_weights(int n_h,int n_w,byte *pixel) {
             auto s = 0.0;
 
             for (int l = 0; l < n; l++) {
-                s += (pixel[j] * lw_d[l][k]);
+                s += ((float)pixel[j] * lw_d[l][k]);
             }
 
             weights[j][k] -= (lr * s);

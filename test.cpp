@@ -13,7 +13,7 @@ void test::output_test(train& input,int n_w,int n_h,const ppm& img) {
 
         for(auto j=0;j<n_w;j++){
             //std::cout << input.get_weights()[j][i] << "\n";
-            s += img.px[j] * input.get_weights()[j][i];
+            s += (float)img.px[j] * input.get_weights()[j][i];
         }
 
         l[i] = input.sigmoid(s);
@@ -22,8 +22,10 @@ void test::output_test(train& input,int n_w,int n_h,const ppm& img) {
 
 
     s = 0.0;
+    auto tmp=0.;
     for(auto i=0;i < n_h;i++){
-        s += (l[i] * input.get_hidden_weights()[i]);
+        tmp += (l[i] * input.get_hidden_weights()[i]);
+        s += tmp;
     }
     //std::cout << "s= " <<s << "\n";
     _s = input.sigmoid(s);
@@ -32,7 +34,7 @@ void test::output_test(train& input,int n_w,int n_h,const ppm& img) {
     if(nearbyint(_s) == 1){
         printf("CANCER DETECTED !!!\n");
         output_test_char("CANCER DETECTED !!!\n");
-        save_weights(input,"./weights",n_h,n_w);
+        save_weights(input,"weights",n_h,n_w);
     } else{
         printf("NO CANCER\n");
         output_test_char("NO CANCER\n");
@@ -76,7 +78,7 @@ void split(const std::string& str, std::vector<float>& cont, char delim = ' ')
 /* on charge le fichier des poids du test qui a donné le résultat voulu et on teste le réseau
  * avec ces valeurs pour vérifier que l'on a les bons résultats */
 void test::run_test(std::string fname,int n_w,int n_h,const ppm& img) {
-    std::ifstream file_weights(fname.c_str(),std::ios::in);
+    std::ifstream file_weights(fname.c_str(),std::ios::in );
     train t;
     std::string poids;
     if (file_weights)
@@ -102,7 +104,7 @@ void test::run_test(std::string fname,int n_w,int n_h,const ppm& img) {
             s = 0.;
             for(auto j = 0; j < n_w ; j++) {
                 for (inc=0;inc<n_h*n_w;inc++ ) {
-                    s += img.px[j] * stock_poids[inc];
+                    s += (float)img.px[j] * stock_poids[inc];
                 }
             }
 
@@ -111,13 +113,14 @@ void test::run_test(std::string fname,int n_w,int n_h,const ppm& img) {
         }
 
         s = 0.0;
+        auto tmp=0.;
 
         for (auto i = 0; i < n_h; i++) {
             //std::cout << hidden_weights[i] << " ";
-            s += (l[i] * hidden_weights[i]);
+            tmp += (l[i] * hidden_weights[i]);
+            s += tmp;
         }
 
-        //std::cout << "s= " <<s << "\n";
         _s = t.sigmoid(s);
 
         printf("\nOutput: (%lf) %.0lf \n", _s, nearbyint(_s));

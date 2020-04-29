@@ -7,7 +7,6 @@
 
 #include "trainer.h"
 #include "ppmimg.h"
-#include <algorithm>
 
 class test{
 public:
